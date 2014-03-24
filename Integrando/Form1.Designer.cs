@@ -59,7 +59,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(400, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "sin(x)*x";
+            this.textBox1.Text = "sin(x)*x -2";
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textRegex1
@@ -153,6 +153,8 @@
             this.Controls.Add(this.textRegex1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.graph1);
+            this.MaximumSize = new System.Drawing.Size(416, 606);
+            this.MinimumSize = new System.Drawing.Size(416, 606);
             this.Name = "Form1";
             this.Text = "Integrando";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();

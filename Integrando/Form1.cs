@@ -15,6 +15,7 @@ namespace Integrando
 {
     public partial class Form1 : Form
     {
+        bool flag = false;
         public Form1()
         {
             InitializeComponent();
@@ -39,6 +40,7 @@ namespace Integrando
                 try
                 {
                     graph1._drawFunction(textBox1.Text, 100, new Pen(Color.Red));
+                    flag = true;
                 }
                 catch (Exception ex)
                 {
@@ -49,60 +51,62 @@ namespace Integrando
 
         private void button1_Click(object sender, EventArgs e)
         {
-            double a;
-            double b;
-            double ins=0;
-            double cir=0;
-            string f = textBox1.Text;
-            try
+            if (flag)
             {
-                a = Convert.ToDouble(textRegex1.SafeText);
-                b = Convert.ToDouble(textRegex2.SafeText);
-                if (a > b)
+                double a;
+                double b;
+                double ins = 0;
+                double cir = 0;
+                string f = textBox1.Text;
+                try
                 {
-                    double c = a;
-                    a = b;
-                    b = c;
-                }
-                int n = (int)numericUpDown1.Value;
-                double step = (b - a) / n;
-                for (int i = 0; i < n; i++) 
-                {
-                    double po = a + (step * i);
-                    double fpo = fx(po, f);
-                    double pos = po + step;
-                    double fpos = fx(po + step, f);
-                    if (fpo * fpos > 0 && ((fpo > 0) ? fpo : -(fpo)) > ((fpos > 0) ? fpos : -(fpos)))
+                    a = Convert.ToDouble(textRegex1.SafeText);
+                    b = Convert.ToDouble(textRegex2.SafeText);
+                    if (a > b)
                     {
-                        graph1._drawRectangle(po, (fpo >= 0) ? fpo : 0, step, (fpo > 0) ? fpo : -(fpo), Color.Red);
-                        cir += step * fpo;  
-                        graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Blue);
-                        ins += step * fpos;
+                        double c = a;
+                        a = b;
+                        b = c;
                     }
-                    else if ( ((fpo>0)?fpo:-(fpo)) < ((fpos>0)?fpos:-(fpos)) )
+                    int n = (int)numericUpDown1.Value;
+                    double step = (b - a) / n;
+                    for (int i = 0; i < n; i++)
                     {
-                        graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Red);
-                        cir += step * fpos;
-                        try
+                        double po = a + (step * i);
+                        double fpo = fx(po, f);
+                        double pos = po + step;
+                        double fpos = fx(po + step, f);
+                        if (fpo * fpos > 0 && ((fpo > 0) ? fpo : -(fpo)) > ((fpos > 0) ? fpos : -(fpos)))
                         {
+                            graph1._drawRectangle(po, (fpo >= 0) ? fpo : 0, step, (fpo > 0) ? fpo : -(fpo), Color.Red);
+                            cir += step * fpo;
+                            graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Blue);
+                            ins += step * fpos;
+                        }
+                        else if (((fpo > 0) ? fpo : -(fpo)) < ((fpos > 0) ? fpos : -(fpos)))
+                        {
+                            graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Red);
+                            cir += step * fpos;
                             graph1._drawRectangle(po, (fpo >= 0) ? fpo : 0, step, (fpo > 0) ? fpo : -(fpo), Color.Blue);
+                            ins += step * fpo;
                         }
-                        catch (ClassGraph.GraphException ex)
-                        {
-
-                        }
-                        ins += step * fpo;  
                     }
+                    if (cir < 0.00000001)
+                        cir = 0;
+                    if (ins < 0.00000001)
+                        ins = 0;
+                    MessageBox.Show("Circoscritti: " + cir.ToString() + "\nInscritti: " + ins.ToString());
                 }
-                if (cir < 0.00000001)
-                    cir = 0;
-                if (ins < 0.00000001)
-                    ins = 0;
-                MessageBox.Show("Circoscritti: "+cir.ToString()+"\nInscritti: "+ins.ToString());
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Controlla i vaolori inseriti!!\n" + ex.Message);
+                }
+                catch (ClassGraph.GraphException ex) { }
+                catch (NullReferenceException ex) { MessageBox.Show(ex.Message); }; //TODO: Capire perché se passo da (0,0) non funziona...
             }
-            catch (FormatException ex)
+            else 
             {
-                MessageBox.Show("Controlla i vaolori inseriti!!");
+                MessageBox.Show("Se disegni qualcosa forse è meglio...");
             }
         }
     }

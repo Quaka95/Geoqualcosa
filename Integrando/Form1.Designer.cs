@@ -59,6 +59,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(400, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Text = "sin(x)*x";
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textRegex1
@@ -66,7 +67,7 @@
             this.textRegex1.Location = new System.Drawing.Point(122, 425);
             this.textRegex1.Name = "textRegex1";
             this.textRegex1.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
-            this.textRegex1.SafeText = "";
+            this.textRegex1.SafeText = "5";
             this.textRegex1.Size = new System.Drawing.Size(200, 20);
             this.textRegex1.TabIndex = 2;
             // 
@@ -75,16 +76,31 @@
             this.textRegex2.Location = new System.Drawing.Point(122, 452);
             this.textRegex2.Name = "textRegex2";
             this.textRegex2.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
-            this.textRegex2.SafeText = "";
+            this.textRegex2.SafeText = "-5";
             this.textRegex2.Size = new System.Drawing.Size(200, 20);
             this.textRegex2.TabIndex = 3;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(122, 479);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
             this.numericUpDown1.TabIndex = 4;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label1
             // 

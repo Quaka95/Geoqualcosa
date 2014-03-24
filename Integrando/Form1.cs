@@ -31,7 +31,7 @@ namespace Integrando
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == ';')
+            if (e.KeyChar == (char)13)
             {
                 graph1._clearAll();
                 graph1._drawAxis();
@@ -51,7 +51,9 @@ namespace Integrando
         {
             double a;
             double b;
-            string f = textBox1.ToString();
+            double ins=0;
+            double cir=0;
+            string f = textBox1.Text;
             try
             {
                 a = Convert.ToDouble(textRegex1.SafeText);
@@ -67,11 +69,36 @@ namespace Integrando
                 for (int i = 0; i < n; i++) 
                 {
                     double po = a + (step * i);
-                    if (fx(po, f) * fx(po+step, f) > 0)
+                    double fpo = fx(po, f);
+                    double pos = po + step;
+                    double fpos = fx(po + step, f);
+                    if (fpo * fpos > 0 && ((fpo > 0) ? fpo : -(fpo)) > ((fpos > 0) ? fpos : -(fpos)))
                     {
-                        graph1._drawRectangle(po,(fx(po, f)>0)?0:fx(po, f),step,fx(po,f),Color.Red);
+                        graph1._drawRectangle(po, (fpo >= 0) ? fpo : 0, step, (fpo > 0) ? fpo : -(fpo), Color.Red);
+                        cir += step * fpo;  
+                        graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Blue);
+                        ins += step * fpos;
+                    }
+                    else if ( ((fpo>0)?fpo:-(fpo)) < ((fpos>0)?fpos:-(fpos)) )
+                    {
+                        graph1._drawRectangle(po, (fpos >= 0) ? fpos : 0, step, (fpos > 0) ? fpos : -(fpos), Color.Red);
+                        cir += step * fpos;
+                        try
+                        {
+                            graph1._drawRectangle(po, (fpo >= 0) ? fpo : 0, step, (fpo > 0) ? fpo : -(fpo), Color.Blue);
+                        }
+                        catch (ClassGraph.GraphException ex)
+                        {
+
+                        }
+                        ins += step * fpo;  
                     }
                 }
+                if (cir < 0.00000001)
+                    cir = 0;
+                if (ins < 0.00000001)
+                    ins = 0;
+                MessageBox.Show("Circoscritti: "+cir.ToString()+"\nInscritti: "+ins.ToString());
             }
             catch (FormatException ex)
             {

@@ -28,75 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.graph1 = new Mate.Graph.Graph();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textRegex1 = new Mate.TextRegex.TextRegex();
-            this.textRegex2 = new Mate.TextRegex.TextRegex();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.graph = new Mate.Graph.Graph();
+            this.txtFunct = new System.Windows.Forms.TextBox();
+            this.regexA = new Mate.TextRegex.TextRegex();
+            this.regexB = new Mate.TextRegex.TextRegex();
+            this.nbrIterazioni = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.CBinf = new System.Windows.Forms.CheckBox();
+            this.CBsup = new System.Windows.Forms.CheckBox();
+            this.CBtra = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrIterazioni)).BeginInit();
             this.SuspendLayout();
             // 
-            // graph1
+            // graph
             // 
-            this.graph1._enableZoomingPanning = true;
-            this.graph1._xMax = 10D;
-            this.graph1._xMin = -10D;
-            this.graph1._yMax = 10D;
-            this.graph1._yMin = -10D;
-            this.graph1.Location = new System.Drawing.Point(0, 0);
-            this.graph1.Name = "graph1";
-            this.graph1.Size = new System.Drawing.Size(400, 400);
-            this.graph1.TabIndex = 0;
+            this.graph._enableZoomingPanning = true;
+            this.graph._xMax = 10D;
+            this.graph._xMin = -10D;
+            this.graph._yMax = 10D;
+            this.graph._yMin = -10D;
+            this.graph.Location = new System.Drawing.Point(0, 0);
+            this.graph.Name = "graph";
+            this.graph.Size = new System.Drawing.Size(400, 400);
+            this.graph.TabIndex = 0;
             // 
-            // textBox1
+            // txtFunct
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(0, 548);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(400, 20);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "sin(x)*x -2";
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.txtFunct.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtFunct.Location = new System.Drawing.Point(0, 548);
+            this.txtFunct.Name = "txtFunct";
+            this.txtFunct.Size = new System.Drawing.Size(400, 20);
+            this.txtFunct.TabIndex = 1;
+            this.txtFunct.Text = "sin(x)*x -2";
+            this.txtFunct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // textRegex1
+            // regexA
             // 
-            this.textRegex1.Location = new System.Drawing.Point(122, 425);
-            this.textRegex1.Name = "textRegex1";
-            this.textRegex1.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
-            this.textRegex1.SafeText = "5";
-            this.textRegex1.Size = new System.Drawing.Size(200, 20);
-            this.textRegex1.TabIndex = 2;
+            this.regexA.Location = new System.Drawing.Point(80, 424);
+            this.regexA.Name = "regexA";
+            this.regexA.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
+            this.regexA.SafeText = "5";
+            this.regexA.Size = new System.Drawing.Size(200, 20);
+            this.regexA.TabIndex = 2;
             // 
-            // textRegex2
+            // regexB
             // 
-            this.textRegex2.Location = new System.Drawing.Point(122, 452);
-            this.textRegex2.Name = "textRegex2";
-            this.textRegex2.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
-            this.textRegex2.SafeText = "-5";
-            this.textRegex2.Size = new System.Drawing.Size(200, 20);
-            this.textRegex2.TabIndex = 3;
+            this.regexB.Location = new System.Drawing.Point(80, 451);
+            this.regexB.Name = "regexB";
+            this.regexB.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
+            this.regexB.SafeText = "-5";
+            this.regexB.Size = new System.Drawing.Size(200, 20);
+            this.regexB.TabIndex = 3;
             // 
-            // numericUpDown1
+            // nbrIterazioni
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(122, 479);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nbrIterazioni.Location = new System.Drawing.Point(80, 478);
+            this.nbrIterazioni.Maximum = new decimal(new int[] {
             10000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nbrIterazioni.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(200, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nbrIterazioni.Name = "nbrIterazioni";
+            this.nbrIterazioni.Size = new System.Drawing.Size(200, 20);
+            this.nbrIterazioni.TabIndex = 4;
+            this.nbrIterazioni.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -105,7 +108,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 431);
+            this.label1.Location = new System.Drawing.Point(5, 430);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 5;
@@ -114,7 +117,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(47, 459);
+            this.label2.Location = new System.Drawing.Point(5, 458);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 6;
@@ -123,7 +126,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 486);
+            this.label3.Location = new System.Drawing.Point(5, 485);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 7;
@@ -131,7 +134,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(247, 505);
+            this.button1.Location = new System.Drawing.Point(205, 504);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -139,25 +142,58 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // CBinf
+            // 
+            this.CBinf.AutoSize = true;
+            this.CBinf.Location = new System.Drawing.Point(286, 438);
+            this.CBinf.Name = "CBinf";
+            this.CBinf.Size = new System.Drawing.Size(60, 17);
+            this.CBinf.TabIndex = 9;
+            this.CBinf.Text = "Inferiori";
+            this.CBinf.UseVisualStyleBackColor = true;
+            // 
+            // CBsup
+            // 
+            this.CBsup.AutoSize = true;
+            this.CBsup.Location = new System.Drawing.Point(286, 461);
+            this.CBsup.Name = "CBsup";
+            this.CBsup.Size = new System.Drawing.Size(67, 17);
+            this.CBsup.TabIndex = 10;
+            this.CBsup.Text = "Superiori";
+            this.CBsup.UseVisualStyleBackColor = true;
+            // 
+            // CBtra
+            // 
+            this.CBtra.AutoSize = true;
+            this.CBtra.Location = new System.Drawing.Point(286, 484);
+            this.CBtra.Name = "CBtra";
+            this.CBtra.Size = new System.Drawing.Size(61, 17);
+            this.CBtra.TabIndex = 11;
+            this.CBtra.Text = "Trapezi";
+            this.CBtra.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 568);
+            this.Controls.Add(this.CBtra);
+            this.Controls.Add(this.CBsup);
+            this.Controls.Add(this.CBinf);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.textRegex2);
-            this.Controls.Add(this.textRegex1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.graph1);
+            this.Controls.Add(this.nbrIterazioni);
+            this.Controls.Add(this.regexB);
+            this.Controls.Add(this.regexA);
+            this.Controls.Add(this.txtFunct);
+            this.Controls.Add(this.graph);
             this.MaximumSize = new System.Drawing.Size(416, 606);
             this.MinimumSize = new System.Drawing.Size(416, 606);
             this.Name = "Form1";
             this.Text = "Integrando";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbrIterazioni)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,15 +201,18 @@
 
         #endregion
 
-        private Mate.Graph.Graph graph1;
-        private System.Windows.Forms.TextBox textBox1;
-        private Mate.TextRegex.TextRegex textRegex1;
-        private Mate.TextRegex.TextRegex textRegex2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private Mate.Graph.Graph graph;
+        private System.Windows.Forms.TextBox txtFunct;
+        private Mate.TextRegex.TextRegex regexA;
+        private Mate.TextRegex.TextRegex regexB;
+        private System.Windows.Forms.NumericUpDown nbrIterazioni;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox CBinf;
+        private System.Windows.Forms.CheckBox CBsup;
+        private System.Windows.Forms.CheckBox CBtra;
     }
 }
 

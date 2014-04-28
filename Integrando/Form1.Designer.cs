@@ -40,7 +40,12 @@
             this.CBinf = new System.Windows.Forms.CheckBox();
             this.CBsup = new System.Windows.Forms.CheckBox();
             this.CBtra = new System.Windows.Forms.CheckBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.nbrIterazioni)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // graph
@@ -54,6 +59,7 @@
             this.graph.Name = "graph";
             this.graph.Size = new System.Drawing.Size(400, 400);
             this.graph.TabIndex = 0;
+            this.graph.Load += new System.EventHandler(this.graph_Load);
             // 
             // txtFunct
             // 
@@ -67,7 +73,7 @@
             // 
             // regexA
             // 
-            this.regexA.Location = new System.Drawing.Point(80, 424);
+            this.regexA.Location = new System.Drawing.Point(101, 10);
             this.regexA.Name = "regexA";
             this.regexA.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
             this.regexA.SafeText = "5";
@@ -76,7 +82,7 @@
             // 
             // regexB
             // 
-            this.regexB.Location = new System.Drawing.Point(80, 451);
+            this.regexB.Location = new System.Drawing.Point(101, 37);
             this.regexB.Name = "regexB";
             this.regexB.Regex = "^[-]?[0-9]+[,]?[0-9]*$";
             this.regexB.SafeText = "-5";
@@ -85,7 +91,7 @@
             // 
             // nbrIterazioni
             // 
-            this.nbrIterazioni.Location = new System.Drawing.Point(80, 478);
+            this.nbrIterazioni.Location = new System.Drawing.Point(101, 64);
             this.nbrIterazioni.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -134,7 +140,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(205, 504);
+            this.button1.Location = new System.Drawing.Point(226, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 8;
@@ -145,7 +151,7 @@
             // CBinf
             // 
             this.CBinf.AutoSize = true;
-            this.CBinf.Location = new System.Drawing.Point(286, 438);
+            this.CBinf.Location = new System.Drawing.Point(307, 24);
             this.CBinf.Name = "CBinf";
             this.CBinf.Size = new System.Drawing.Size(60, 17);
             this.CBinf.TabIndex = 9;
@@ -155,7 +161,7 @@
             // CBsup
             // 
             this.CBsup.AutoSize = true;
-            this.CBsup.Location = new System.Drawing.Point(286, 461);
+            this.CBsup.Location = new System.Drawing.Point(307, 47);
             this.CBsup.Name = "CBsup";
             this.CBsup.Size = new System.Drawing.Size(67, 17);
             this.CBsup.TabIndex = 10;
@@ -165,35 +171,70 @@
             // CBtra
             // 
             this.CBtra.AutoSize = true;
-            this.CBtra.Location = new System.Drawing.Point(286, 484);
+            this.CBtra.Location = new System.Drawing.Point(307, 70);
             this.CBtra.Name = "CBtra";
             this.CBtra.Size = new System.Drawing.Size(61, 17);
             this.CBtra.TabIndex = 11;
             this.CBtra.Text = "Trapezi";
             this.CBtra.UseVisualStyleBackColor = true;
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 398);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(400, 150);
+            this.tabControl1.TabIndex = 12;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.regexA);
+            this.tabPage1.Controls.Add(this.CBtra);
+            this.tabPage1.Controls.Add(this.regexB);
+            this.tabPage1.Controls.Add(this.CBsup);
+            this.tabPage1.Controls.Add(this.nbrIterazioni);
+            this.tabPage1.Controls.Add(this.CBinf);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(392, 124);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(392, 124);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 568);
-            this.Controls.Add(this.CBtra);
-            this.Controls.Add(this.CBsup);
-            this.Controls.Add(this.CBinf);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.nbrIterazioni);
-            this.Controls.Add(this.regexB);
-            this.Controls.Add(this.regexA);
             this.Controls.Add(this.txtFunct);
             this.Controls.Add(this.graph);
             this.MaximumSize = new System.Drawing.Size(416, 606);
             this.MinimumSize = new System.Drawing.Size(416, 606);
             this.Name = "Form1";
             this.Text = "Integrando";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nbrIterazioni)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -213,6 +254,9 @@
         private System.Windows.Forms.CheckBox CBinf;
         private System.Windows.Forms.CheckBox CBsup;
         private System.Windows.Forms.CheckBox CBtra;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }
 

@@ -59,7 +59,6 @@ namespace Integrando
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
             const double VERY_LITTLE_NUMBER = 0.00000001;
 
             if (flag && dati_ok()) // _funzione_disegnata // se la funzione é già stata disegnata
@@ -134,9 +133,9 @@ namespace Integrando
                             //TODO
                             PointD[] punti = new PointD[4];
                             punti[0] = new PointD(Xleft, 0);
-                            punti[1] = new PointD(Xleft, Yleft);
-                            punti[2] = new PointD(Xright, 0);
-                            punti[3] = new PointD(Xright, Yright);
+                            punti[3] = new PointD(Xleft, Yleft);
+                            punti[1] = new PointD(Xright, 0);
+                            punti[2] = new PointD(Xright, Yright);
                             graph._drawPoligon(punti,Color.Yellow);
                             tra += ((Yleft + Yright) * deltaX) / 2;
                         }
@@ -144,6 +143,7 @@ namespace Integrando
                     catch (ClassGraph.GraphException ex) { MessageBox.Show(ex.Message); }
                     catch (OverflowException ex)
                     {
+
                         MessageBox.Show("La funzione molto probabilmente in uno dei punti non esiste!!!\n"+ex.Message);
                     }
                 }
@@ -158,6 +158,16 @@ namespace Integrando
             {
                 MessageBox.Show("Se disegni qualcosa forse è meglio...");
             }
+        }
+
+        private void graph_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
